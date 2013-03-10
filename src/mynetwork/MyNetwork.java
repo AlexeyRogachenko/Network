@@ -30,11 +30,10 @@ public class MyNetwork {
         matrix = new boolean[count][count];
         int i = 0;
         while (i < count) {
-            Computer comp = new Computer(r.nextInt(3));
+            Computer comp = new Computer(r.nextInt(3));  //в качестве параметра передаём "код" операционной системы
             if (comp.TryInfect()) {
                 infectedCount++;
             }
-            comp.setIndex(i);
             list.add(comp);
             for (int j = 0; j < i; j++) {
                 boolean link = r.nextInt(2) > 0;
@@ -101,13 +100,13 @@ public class MyNetwork {
                             if (target.TryInfect()) {
                                 infectedCount++;
                                 newlyInfected.add(target);
-                                System.out.println("infection: " + (i+1) + "->" + (j+1));
+                                System.out.println("infection: " + (i + 1) + "->" + (j + 1));
                             }
                         }
                     }
                 }
             }
-            System.out.println(newlyInfected.size() + " computers are infected");
+            System.out.println("...");
             newlyInfected.clear();
 
         }
